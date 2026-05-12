@@ -2,6 +2,9 @@
 target/
 **/target/
 
+# Local bootloader binaries
+bootloader/
+
 # macOS
 .DS_Store
 
