@@ -7,7 +7,7 @@ use riscv::register::{
     scause::{self, Exception, Trap},
     stval,
 };
-use crate::batch::run_next_app;
+// use crate::batch::run_next_app;
 use crate::syscall::syscall;
 
 global_asm!(include_str!("trap.S"));
@@ -32,11 +32,11 @@ pub fn trap_handler(cx: &mut TrapContext) -> &mut TrapContext {
         }
         Trap::Exception(Exception::StoreFault) | Trap::Exception(Exception::StorePageFault) => {
             println!("[kernel] PageFault in application, core dumped.");
-            run_next_app();
+//            run_next_app();
         }
         Trap::Exception(Exception::IllegalInstruction) => {
             println!("[kernel] IllegalInstruction in application, core dumped.");
-            run_next_app();
+//            run_next_app();
         }
         _ => {
             panic!("Unsupported trap {:?}, stval = {:#x}!", scause.cause(), stval);
