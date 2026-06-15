@@ -18,6 +18,8 @@ pub use page_table::{
     PageTableEntry,
     PTEFlags,
     translated_byte_buffer,
+    translated_str,
+    translated_refmut,
 };
 
 pub use frame_allocator::{
